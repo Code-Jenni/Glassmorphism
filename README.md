@@ -1,2 +1,3 @@
-# Glassmorphism
-A modern Glassmorphism Login Page with Dark/Light theme toggle, neon hover effects, and animated floating backgrounds using HTML, CSS, and JavaScript.
+🌌 Glassmorphism Login Page
+
+A sleek login page with Glassmorphism UI, Dark/Light theme toggle, Neon hover effects, and animated backgrounds — built using HTML, CSS, and JavaScript.

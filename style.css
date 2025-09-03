@@ -1,0 +1,237 @@
+/* VARIABLES */
+:root {
+  --bg-gradient: linear-gradient(135deg, #6d5dfc, #46c9e3);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --text-color: #fff;
+  --accent-color: #46c9e3;
+  --input-border: #fff;
+}
+
+/* DARK THEME */
+body.dark {
+  --bg-gradient: linear-gradient(135deg, #0f0f0f, #242424);
+  --glass-bg: rgba(30, 30, 30, 0.3);
+  --text-color: #f1f1f1;
+  --accent-color: #ff7b54;
+  --input-border: #aaa;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: var(--bg-gradient);
+  overflow: hidden;
+  transition: background 0.5s ease;
+}
+
+/* BACKGROUND FLOATING SHAPES */
+.shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.shapes span {
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: var(--accent-color);
+  opacity: 0.2;
+  border-radius: 50%;
+  animation: float 10s linear infinite;
+}
+
+.shapes span:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-duration: 12s;
+  width: 100px;
+  height: 100px;
+}
+.shapes span:nth-child(2) {
+  top: 70%;
+  left: 20%;
+  animation-duration: 15s;
+}
+.shapes span:nth-child(3) {
+  top: 40%;
+  right: 15%;
+  animation-duration: 18s;
+  width: 120px;
+  height: 120px;
+}
+.shapes span:nth-child(4) {
+  bottom: 10%;
+  left: 50%;
+  animation-duration: 20s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-50px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+
+/* THEME TOGGLE */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-color);
+  font-size: 20px;
+}
+
+.theme-toggle input {
+  width: 40px;
+  height: 20px;
+  appearance: none;
+  background: var(--accent-color);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.theme-toggle input::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.theme-toggle input:checked::before {
+  transform: translateX(20px);
+}
+
+/* LOGIN BOX */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login-box {
+  position: relative;
+  width: 350px;
+  padding: 40px;
+  border-radius: 20px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+              0 0 30px var(--accent-color);
+  color: var(--text-color);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  transition: background 0.5s, color 0.5s, box-shadow 0.5s;
+}
+
+.login-box h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  text-shadow: 0 0 10px var(--accent-color);
+}
+
+/* INPUTS */
+.input-box {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 2px solid var(--input-border);
+  color: var(--text-color);
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-box input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #ccc;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px;
+  color: var(--accent-color);
+  font-size: 14px;
+  text-shadow: 0 0 5px var(--accent-color);
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 0 15px var(--accent-color);
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px var(--accent-color);
+}
+
+/* SIGNUP */
+.signup {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.signup a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0 0 8px var(--accent-color);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
